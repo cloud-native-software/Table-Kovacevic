@@ -5,21 +5,20 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 l = []
+p = []
+n = []
 function unesi_broj() {
     rl.question('Unesite broj: ', (broj) => {
         broj = parseFloat(broj)
-        if (broj != 0) {
-            l.push(broj)
-            unesi_broj()
-        }
-        else {
+
+        if (broj == 0 || broj > 99) {
             console.log("Uneti brojevi su ", l)
             min_vrednost = l[0]
             max_vrednost = l[0]
 
             for (i = 1; i < l.length; i++) {
                 if (l[i] < min_vrednost) {
-                    min_vrednost = l[1]
+                    min_vrednost = l[i]
                     console.log(min_vrednost)
 
                 }
@@ -28,25 +27,31 @@ function unesi_broj() {
                 }
             }
             console.log("Minimalna vrednost je:", min_vrednost)
-            console.log("Maximanlna vrednost je:",max_vrednost)
-
+            console.log("Maximanlna vrednost je:", max_vrednost)
+            console.log("Spisak parnih brojeva je: ", p)
+            console.log("Spisak neparnih brojeva je: ", n)
             let k = 0
 
-            for (i = 1; i < l.length; i++) {
+            for (i = 0; i < l.length; i++) {
                 k += l[i] / l.length
 
             }
-            console.log("Srednja vrednost je:",k)
+            console.log("Srednja vrednost je:", k)
+        }
+        else {
+            l.push(broj)
+            unesi_broj()
+        }
+        if (broj % 2 == 0) {
+            p.push(broj)
+
+        }
+        if (broj % 2 == 1) {
+            n.push(broj)
+
         }
 
     }
-    Ovo je neko dodao posle MediaEncryptedEvent.apply
-
     )
 }
-
-
-
-
-
 unesi_broj()
