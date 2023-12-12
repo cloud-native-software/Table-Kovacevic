@@ -40,6 +40,7 @@ function unesi_broj() {
         }
 
     }
+    Ovo je neko dodao posle MediaEncryptedEvent.apply
 
     )
 }
