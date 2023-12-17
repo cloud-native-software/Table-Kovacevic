@@ -12,7 +12,11 @@ function unesi_broj() {
     rl.question('Unesite broj: ', (broj) => {
         broj = parseFloat(broj)
 
-        if (broj <= 0 || broj > 99) {
+        if (broj < 0 || broj > 99) {
+            console.log("Uneli ste neogovarajuci broj, unesite broj ponovo")
+            unesi_broj()
+        }
+        else if (broj == 0) {
             console.log("Uneti brojevi su ", l)
             min_vrednost = l[0]
             max_vrednost = l[0]
@@ -27,12 +31,13 @@ function unesi_broj() {
                     max_vrednost = l[i]
                 }
             }
+            proveriParNepar()
             console.log("Minimalna vrednost je:", min_vrednost)
             console.log("Maximanlna vrednost je:", max_vrednost)
             console.log("Spisak parnih brojeva je: ", p)
             console.log("Spisak neparnih brojeva je: ", n)
-            soritiranjee()
             soritiranje()
+
             let k = 0
 
             for (i = 0; i < l.length; i++) {
@@ -45,24 +50,28 @@ function unesi_broj() {
             l.push(broj)
             unesi_broj()
         }
-        if (broj % 2 == 0) {
-            p.push(broj)
-
-        }
-        if (broj % 2 == 1) {
-            n.push(broj)
-
-        }
-
     }
     )
 }
-function soritiranje(){
+function soritiranje() {
     l.sort((a, b) => b - a);
-    console.log("Sortirani brojevi od najveceg ka najmanjem", l)       
-}
-function soritiranjee(){
+    console.log("Sortirani brojevi od najveceg ka najmanjem", l)
     l.sort((a, b) => a - b);
-    console.log("Sortirani brojevi od najmanjeg ka najvecem", l)       
+    console.log("Sortirani brojevi od najmanjeg ka najvecem", l)
 }
+function proveriParNepar() {
+    for (let i = 0; i < l.length; i++) {
+        let broj = l[i];
+
+        if (broj % 2 === 0) {
+            p.push(broj)
+
+        } else {
+            n.push(broj)
+
+        }
+    }
+}
+
+
 unesi_broj()
