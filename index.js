@@ -18,22 +18,8 @@ function unesi_broj() {
         }
         else if (broj == 0) {
             console.log("Uneti brojevi su ", l)
-            min_vrednost = l[0]
-            max_vrednost = l[0]
 
-            for (i = 1; i < l.length; i++) {
-                if (l[i] < min_vrednost) {
-                    min_vrednost = l[i]
-                    console.log(min_vrednost)
-
-                }
-                if (l[i] > max_vrednost) {
-                    max_vrednost = l[i]
-                }
-            }
             proveriParNepar()
-            console.log("Minimalna vrednost je:", min_vrednost)
-            console.log("Maximanlna vrednost je:", max_vrednost)
             console.log("Spisak parnih brojeva je: ", p)
             console.log("Spisak neparnih brojeva je: ", n)
             soritiranje()
@@ -56,8 +42,11 @@ function unesi_broj() {
 function soritiranje() {
     l.sort((a, b) => b - a);
     console.log("Sortirani brojevi od najveceg ka najmanjem", l)
+    console.log("Maximalna vredost je: ", l[0])
     l.sort((a, b) => a - b);
     console.log("Sortirani brojevi od najmanjeg ka najvecem", l)
+    console.log("Minimalna vrednost je: ", l[0])
+
 }
 function proveriParNepar() {
     for (let i = 0; i < l.length; i++) {
